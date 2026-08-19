@@ -112,7 +112,7 @@ class CaptionFileTests(unittest.TestCase):
         exif = Image.Exif()
         exif[274] = 1
         exif[270] = "private source note"
-        Image.new("RGB", (800, 600), (245, 235, 225)).save(
+        Image.new("RGB", (1600, 1200), (245, 235, 225)).save(
             source,
             format="PNG",
             dpi=(144, 144),
@@ -120,7 +120,7 @@ class CaptionFileTests(unittest.TestCase):
             exif=exif,
         )
 
-        render_caption(source, output, "Soft Bridge", "modern", [(0.1, 0.1, 0.5, 0.2)])
+        render_caption(source, output, "Soft Bridge", "modern", [(0.05, 0.05, 0.9, 0.4)])
 
         with Image.open(source) as before, Image.open(output) as after:
             self.assertNotIn("exif", after.info)

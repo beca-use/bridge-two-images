@@ -84,20 +84,9 @@ jobs:
           test_render_caption.CaptionFileTests.test_publish_never_overwrites_an_existing_path
 
       - name: Test caption metadata handling
-        if: runner.os != 'Linux'
         run: >-
           python -m unittest
           test_render_caption.CaptionFileTests.test_render_strips_exif_and_preserves_required_metadata
-
-      - name: Test caption metadata handling on Linux
-        if: runner.os == 'Linux'
-        shell: bash
-        run: |
-          if ! output=$(python -m unittest test_render_caption.CaptionFileTests.test_render_strips_exif_and_preserves_required_metadata 2>&1); then
-            output=${output//$'\n'/'%0A'}
-            echo "::error title=Linux caption metadata test::$output"
-            exit 1
-          fi
 
       - name: Run workspace tests
         run: python -m unittest test_run_workspace.py
