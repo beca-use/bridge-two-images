@@ -6,22 +6,36 @@ It is intended for artistic image bridging, not ordinary collages, side-by-side 
 
 ## Install
 
-Copy this folder into your Codex skills directory:
+Clone the repository into your Codex skills directory.
+
+On macOS or Linux:
+
+```bash
+git clone https://github.com/beca-use/bridge-two-images.git \
+  ~/.codex/skills/bridge-two-images
+cd ~/.codex/skills/bridge-two-images
+python -m pip install -r requirements.txt
+```
+
+On Windows PowerShell:
+
+```powershell
+git clone https://github.com/beca-use/bridge-two-images.git `
+  "$env:USERPROFILE\.codex\skills\bridge-two-images"
+Set-Location "$env:USERPROFILE\.codex\skills\bridge-two-images"
+python -m pip install -r requirements.txt
+```
+
+The resulting installation path is:
 
 ```text
 ~/.codex/skills/bridge-two-images
 ```
 
-On Windows, the equivalent default location is:
+On Windows:
 
 ```text
-%USERPROFILE%\\.codex\\skills\\bridge-two-images
-```
-
-Install the Python helper dependency:
-
-```bash
-python -m pip install -r requirements.txt
+%USERPROFILE%\.codex\skills\bridge-two-images
 ```
 
 Use Python 3.10 or newer.
@@ -82,6 +96,7 @@ agents/openai.yaml       UI metadata
 references/              Detailed workflow references
 scripts/                 Validators, helpers, and regression tests
 requirements.txt         Python helper dependency
+.github/workflows/       Automated cross-platform tests
 ```
 
 ## License
