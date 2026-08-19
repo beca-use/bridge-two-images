@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bridge Two Images"
+  short_description: "Artistically bridge two images into one scene"
+  default_prompt: "Use $bridge-two-images to artistically bridge these two images into one unified editorial artwork with automatic choices."
