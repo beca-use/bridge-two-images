@@ -68,8 +68,25 @@ jobs:
       - name: Run caption boundary tests
         run: python -m unittest test_render_caption.CaptionBoundaryTests
 
-      - name: Run caption file tests
-        run: python -m unittest test_render_caption.CaptionFileTests
+      - name: Test caption input formats
+        run: >-
+          python -m unittest
+          test_render_caption.CaptionFileTests.test_master_rejects_rgb_transparency_and_animation
+
+      - name: Test caption orientation
+        run: >-
+          python -m unittest
+          test_render_caption.CaptionFileTests.test_master_rejects_unnormalized_orientation
+
+      - name: Test caption no-overwrite rule
+        run: >-
+          python -m unittest
+          test_render_caption.CaptionFileTests.test_publish_never_overwrites_an_existing_path
+
+      - name: Test caption metadata handling
+        run: >-
+          python -m unittest
+          test_render_caption.CaptionFileTests.test_render_strips_exif_and_preserves_required_metadata
 
       - name: Run workspace tests
         run: python -m unittest test_run_workspace.py
