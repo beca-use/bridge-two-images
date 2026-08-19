@@ -37,5 +37,30 @@ jobs:
       - name: Compile scripts
         run: python -m compileall -q scripts
 
-      - name: Run tests
-        run: python -m unittest discover -s scripts -p "test_*.py"
+      - name: Run policy tests
+        run: python -m unittest discover -s scripts -p "test_*policy.py"
+
+      - name: Run plan and manifest tests
+        run: >-
+          python -m unittest
+          scripts/test_anchor_manifest.py
+          scripts/test_bridge_plan.py
+          scripts/test_relationship_plan.py
+
+      - name: Run backend tests
+        run: python -m unittest scripts/test_backend_route.py
+
+      - name: Run image safety tests
+        run: python -m unittest scripts/test_image_safety.py
+
+      - name: Run pixel protection tests
+        run: >-
+          python -m unittest
+          scripts/test_pixel_protection.py
+          scripts/test_adversarial_cases.py
+
+      - name: Run caption tests
+        run: python -m unittest scripts/test_render_caption.py
+
+      - name: Run workspace tests
+        run: python -m unittest scripts/test_run_workspace.py
