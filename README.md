@@ -4,6 +4,14 @@
 
 It is intended for artistic image bridging, not ordinary collages, side-by-side comparisons, screenshot stitching, panoramas, or simple background replacement.
 
+## Requirements
+
+- Codex with image-generation access, or another configured image backend that accepts two visual references and returns one raster image.
+- Python 3.10 or newer for the bundled validation, caption, and pixel-protection helpers.
+- Git for the installation commands below.
+
+The optional `codex-image2` route is not bundled in this repository. Users who choose that route must install and configure it separately. The Skill can use a compatible client-native image tool or another documented fallback backend when available.
+
 ## Install
 
 Clone the repository into your Codex skills directory.
