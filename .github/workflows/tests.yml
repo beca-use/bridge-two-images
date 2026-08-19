@@ -62,8 +62,14 @@ jobs:
           test_pixel_protection.py
           test_adversarial_cases.py
 
-      - name: Run caption tests
-        run: python -m unittest test_render_caption.py
+      - name: Run caption negative-space tests
+        run: python -m unittest test_render_caption.NegativeSpaceTests
+
+      - name: Run caption boundary tests
+        run: python -m unittest test_render_caption.CaptionBoundaryTests
+
+      - name: Run caption file tests
+        run: python -m unittest test_render_caption.CaptionFileTests
 
       - name: Run workspace tests
         run: python -m unittest test_run_workspace.py
